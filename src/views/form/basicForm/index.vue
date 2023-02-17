@@ -70,7 +70,17 @@ const formRef: any = ref(null)
 const message = useMessage()
 const { uploadUrl } = globSetting
 
-const defaultValueRef = () => ({
+type defaultValueRefTpe = (p?: number) => {
+  name: string
+  mobile: string
+  remark: string
+  sex: number
+  matter: null
+  doctor: null
+  datetime: Array<number>
+}
+
+const defaultValueRef: defaultValueRefTpe = () => ({
   name: '',
   mobile: '',
   remark: '',
