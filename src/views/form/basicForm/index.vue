@@ -120,14 +120,7 @@ function uploadChange(list: string[]) {
     <n-card :bordered="false" class="mt-4 proCard">
       <n-grid cols="1 s:1 m:3 l:3 xl:3 2xl:3" responsive="screen">
         <n-grid-item offset="0 s:0 m:1 l:1 xl:1 2xl:1">
-          <n-form
-            ref="formRef"
-            :label-width="80"
-            :model="formValue"
-            :rules="rules"
-            label-placement="left"
-            class="py-8"
-          >
+          <n-form ref="formRef" :label-width="80" :model="formValue" :rules="rules" label-placement="left" class="py-8">
             <n-form-item label="预约姓名" path="name">
               <n-input v-model:value="formValue.name" placeholder="输入姓名" />
             </n-form-item>
@@ -138,19 +131,10 @@ function uploadChange(list: string[]) {
               <n-date-picker v-model:value="formValue.datetime" type="datetime" />
             </n-form-item>
             <n-form-item label="预约医生" path="doctor">
-              <n-select
-                v-model:value="formValue.doctor"
-                placeholder="请选择预约医生"
-                :options="doctorList"
-              />
+              <n-select v-model:value="formValue.doctor" placeholder="请选择预约医生" :options="doctorList" />
             </n-form-item>
             <n-form-item label="预约事项" path="matter">
-              <n-select
-                v-model:value="formValue.matter"
-                placeholder="请选择预约事项"
-                :options="matterList"
-                multiple
-              />
+              <n-select v-model:value="formValue.matter" placeholder="请选择预约事项" :options="matterList" multiple />
             </n-form-item>
             <n-form-item label="性别" path="sex">
               <n-radio-group v-model:value="formValue.sex" name="sex">
@@ -165,22 +149,12 @@ function uploadChange(list: string[]) {
               </n-radio-group>
             </n-form-item>
             <n-form-item label="预约备注" path="remark">
-              <n-input
-                v-model:value="formValue.remark"
-                type="textarea"
-                placeholder="请输入预约备注"
-              />
+              <n-input v-model:value="formValue.remark" type="textarea" placeholder="请输入预约备注" />
             </n-form-item>
             <n-form-item label="图片" path="img">
               <BasicUpload
-                v-model:value="uploadList"
-                :action="`${uploadUrl}/v1.0/files`"
-                :headers="uploadHeaders"
-                :data="{ type: 0 }"
-                name="files"
-                :width="100"
-                :height="100"
-                help-text="单个文件不超过20MB，最多只能上传10个文件"
+                v-model:value="uploadList" :action="`${uploadUrl}/v1.0/files`" :headers="uploadHeaders"
+                :data="{ type: 0 }" name="files" :width="100" :height="100" help-text="单个文件不超过20MB，最多只能上传10个文件"
                 @upload-change="uploadChange"
               />
             </n-form-item>
